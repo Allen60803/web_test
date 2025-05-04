@@ -1,0 +1,28 @@
+<?php
+session_start();
+if (isset($_SESSION['user'])) {
+  header("Location: index.php"); // 若已登入，直接跳轉到聊天頁面
+  exit;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登入</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-container">
+    <h1>歡迎回來</h1>
+    <form action="login_action.php" method="POST">
+      <input type="text" name="username" placeholder="帳號" required>
+      <input type="password" name="password" placeholder="密碼" required>
+      <button type="submit">登入</button>
+    </form>
+    <p>還沒註冊？<a href="register.php">點此註冊</a></p>
+  </div>
+</body>
+</html>
